@@ -1,0 +1,31 @@
+{% extends 'google/base.html' %}
+{% block content %}
+{% load static %}
+<div class="pageholder">
+    <div class="titleholder"> 
+        <div class="title"><i class="fas fa-compass mr-2"></i> Google Maps #4: Markers on a map </div>
+        <a href="{% url 'home'%}" class="title2 mr-4"><i class="fas fa-home mr-2"></i> Back to home </a>
+    </div>
+
+    <div class="linkholder">
+        Our content will be placed here 
+    </div>
+</div>
+<div id="map"></div>
+<script
+   src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&v=weekly"
+   defer
+></script>
+<script> 
+    let map;
+    function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+    });
+    }
+    window.initMap = initMap;
+
+</script>
+
+{% endblock content %}

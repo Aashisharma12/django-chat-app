@@ -1,0 +1,69 @@
+{% extends 'main_template.html' %}
+{% load static %}
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+
+<div class="wrap_container">
+    <div class="manage-height">
+        <h5 class="mt-2">
+            <!--<small class="text-muted">Newsletter</small>-->
+        </h5>
+        <div class="row mt-3">
+            <div class="col-lg-6 col-md-10 mx-auto">
+            
+                This is About us page
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-12">
+           <form method='post' action='/about_us/'>
+                 <div>
+                    {% csrf_token %}
+                     <label for="">Value1</label>
+                      <input type ="text" name="num1"  class="form-control"/> 
+                 </div>
+                 <div>
+                    <label for="">Value2</label>
+                     <input type ="text" name="num2"  class="form-control"/> 
+                </div>
+                <div class="pt-2">
+                    <button type="submit">SAVE</button>
+                </div>    
+            </form>
+        </div>
+        {% if result %}
+                    
+                    {{ result }}
+                    
+                {% endif %}
+ 
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+
+    
+</script>
+
+{% endblock %}
+<section
+{% block extra_css %}
+<style>
+    .text-center {
+        text-align: center;
+    }
+    .text-right {
+        text-align: right;
+    }
+</style> 
+{% endblock %}

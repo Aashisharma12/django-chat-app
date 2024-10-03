@@ -1,0 +1,80 @@
+{% extends 'main_template.html' %}
+{% load static %}
+{% block title %}
+    index
+{% endblock %}
+
+{% block content %}
+
+ 
+<div class="wrap_container">
+    <div class="manage-height">
+        <h5 class="mt-2">
+            <marquee>DVN</marquee>
+            <div class="scrolling-text" id="newsTicker">
+                {% for news in newsData %}
+                    <span class="news-item">{{ news.news_title }}</span>
+                {% endfor %}
+            </div>
+            <!--<small class="text-muted">Newsletter</small>-->
+        </h5>
+        <div class="row mt-3">
+            <div class="col-lg-6 col-md-10 mx-auto">
+            
+                Hey this is my site to some study about the django tutorial 
+            </div>
+        </div>
+    </div>       
+</div>
+{% endblock %}
+{% block scripts %}
+
+<script>
+
+    
+</script>
+
+{% endblock %}
+{% block extra_css %}
+<style>
+    .text-center {
+        text-align: center;
+    }
+    .text-right {
+        text-align: right;
+    }
+</style> 
+<style>
+    .scrolling-text {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: scroll-left 15s linear infinite;
+    }
+
+    .news-item {
+        display: inline-block;
+        padding-right: 2rem; /* Space between news items */
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+<script>
+    const ticker = document.getElementById('newsTicker');
+    ticker.addEventListener('mouseover', () => {
+        ticker.style.animationPlayState = 'paused';
+    });
+    ticker.addEventListener('mouseout', () => {
+        ticker.style.animationPlayState = 'running';
+    });
+</script>
+
+{% endblock %}
